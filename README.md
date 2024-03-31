@@ -1,6 +1,8 @@
 # E-Go
 
 A simple web app designed to house protocols of a counties ems agency. This is designed for first responders to have a quick and user intuitive way to access protocols when they need the information. 
+![image](https://github.com/BayDev20/Ego/assets/152105436/640ae82b-5148-4b19-8e27-e3a2ee5ee28e)
+
 
 ## Features
 
