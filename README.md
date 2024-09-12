@@ -3,6 +3,8 @@
 ## Description
 EMS Protocol Guide is a web application designed to assist Emergency Medical Service (EMS) professionals with quick access to medical protocols, dosage calculations, and nearby hospital locations. This tool aims to streamline decision-making processes in emergency situations.
 
+
+
 ## Features
 - **Protocol Reference**: Quick access to various EMS protocols categorized by medical conditions.
 - **Dosage Calculator**: Calculates medication dosages based on patient weight and selected medication.
