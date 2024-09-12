@@ -1,3 +1,29 @@
+// Theme switcher
+const themeSwitch = document.querySelector('.theme-switch');
+const body = document.body;
+
+themeSwitch.addEventListener('change', function() {
+    if (this.checked) {
+        body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        body.classList.remove('dark-theme');
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Check for saved theme preference or respect OS preference
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme === 'dark' || (currentTheme === null && prefersDarkScheme.matches)) {
+    themeSwitch.checked = true;
+    body.classList.add('dark-theme');
+} else {
+    themeSwitch.checked = false;
+    body.classList.remove('dark-theme');
+}
+
 function initMap() {
     // Default location: South Lake Tahoe
     const defaultLocation = { lat: 38.933241, lng: -119.984348 }; // Coordinates for South Lake Tahoe
@@ -101,3 +127,62 @@ function calculateDosage() {
 
     document.getElementById('dosageResult').innerText = `The required dosage is ${totalDosage} mg`;
 }
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Lazy loading for protocol cards
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.protocol-card').forEach(card => {
+    observer.observe(card);
+});
+
+const searchInput = document.getElementById('protocol-search');
+const protocolItems = document.querySelectorAll('.protocol-card li');
+
+searchInput.addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    protocolItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(searchTerm) ? '' : 'none';
+    });
+});
+
+const dosageForm = document.getElementById('dosage-form');
+const resultDiv = document.getElementById('result');
+
+const medications = {
+    epinephrine: { dosage: 0.01, unit: 'mg/kg' },
+    morphine: { dosage: 0.1, unit: 'mg/kg' },
+    // Add more medications and their dosages
+};
+
+dosageForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const medication = document.getElementById('medication').value;
+    const weight = document.getElementById('weight').value;
+    
+    if (medication && weight) {
+        const { dosage, unit } = medications[medication];
+        const calculatedDosage = (dosage * weight).toFixed(2);
+        resultDiv.innerHTML = `
+            <h3>${medication.charAt(0).toUpperCase() + medication.slice(1)}</h3>
+            <p>Recommended dosage: ${calculatedDosage} ${unit}</p>
+        `;
+        resultDiv.style.display = 'block';
+    }
+});
