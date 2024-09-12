@@ -3,119 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMS Protocols and Medication Dosage Calculator</title>
+    <title>EMS Protocols</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-EVIYAl-9kTRrGbWnJz5jCyjWiDMRF3o&libraries=places&callback=initMap" async defer></script>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <img src="assets/imgs/header.png" alt="EMS Protocols Header">
-    </header>
-    <main>
-        <section class="content">
-            <div class="dropdown-container">
-                <div class="dropdown" id="Preface">
-                    <button class="dropbtn">Preface</button>
-                    <div class="dropdown-content">
-                        <a href="assets/protocols/Preface.pdf" download>Download Preface</a>
-                    </div>
-                </div>
-
-                <div class="dropdown" id="cardiac">
-                    <button class="dropbtn">Cardiac</button>
-                    <div class="dropdown-content">
-                        <a href="assets/protocols/Bradycardia.pdf" download>Bradycardia</a>
-                        <a href="assets/protocols/Chest_Pain.pdf" download>Chest Pain</a>
-                        <a href="assets/protocols/CHF_Pulmonary_Edema.pdf" download>CHF / Pulmonary Edema</a>
-                        <a href="assets/protocols/Narrow_Complex_Tachycardia.pdf" download>Narrow-Complex Tachycardia</a>
-                        <a href="assets/protocols/Pulseless_Arrest.pdf" download>Pulseless Arrest</a>
-                        <a href="assets/protocols/ROSC.pdf" download>ROSC</a>
-                        <a href="assets/protocols/Wide_Complex_tachycardia.pdf" download>Wide Complex Tachycardia</a>
-                    </div>
-                </div>
-
-                <div class="dropdown" id="medical">
-                    <button class="dropbtn">Medical</button>
-                    <div class="dropdown-content">
-                        <a href="assets/protocols/Airway_Obstruction.pdf" download>Airway Obstruction</a>
-                        <a href="assets/protocols/Allergic_Reaction.pdf" download>Allergic Reaction</a>
-                        <a href="assets/protocols/Altered_Level_of_Consciousness_ALOC.pdf" download>Altered Level of Consciousness (ALOC)</a>
-                        <a href="assets/protocols/Bronchospasm.pdf" download>Bronchospasm / COPD</a>
-                        <a href="assets/protocols/Cold_Exposures.pdf" download>Cold Exposures</a>
-                        <a href="assets/protocols/Drowning_Event.pdf" download>Drowning Event</a>
-                        <a href="assets/protocols/Dystonic_Reaction.pdf" download>Dystonic Reaction</a>
-                        <a href="assets/protocols/Glycemic_Emergencies.pdf" download>Glycemic Emergencies</a>
-                        <a href="assets/protocols/Heat_Illness.pdf" download>Heat Illness</a>
-                        <a href="assets/protocols/Poisoning_Overdose.pdf" download>Poisoning / Overdose</a>
-                        <a href="assets/protocols/Seizures.pdf" download>Seizures</a>
-                        <a href="assets/protocols/Sepsis.pdf" download>Sepsis</a>
-                        <a href="assets/protocols/Severely_Agitated_Patient.pdf" download>Severely Agitated Patient</a>
-                        <a href="assets/protocols/Bites_Stings_Envenomations.pdf" download>Bites, Stings, Envenomations</a>
-                        <a href="assets/protocols/Stroke.pdf" download>Stroke</a>
-                    </div>
-                </div>
-
-                <div class="dropdown" id="obgyn-pediatric">
-                    <button class="dropbtn">OB/GYN Pediatric</button>
-                    <div class="dropdown-content">
-                        <a href="assets/protocols/Brief_Resolved_Unexplained_Event.pdf" download>Brief Resolved Unexplained Event</a>
-                        <a href="assets/protocols/Childbirth.pdf" download>Childbirth</a>
-                        <a href="assets/protocols/Neonatal_Resuscitation.pdf" download>Neonatal Resuscitation</a>
-                    </div>
-                </div>
-
-                <div class="dropdown" id="general">
-                    <button class="dropbtn">General</button>
-                    <div class="dropdown-content">
-                        <a href="assets/protocols/Pain_Management.pdf" download>Pain Management</a>
-                        <a href="assets/protocols/Shock.pdf" download>Shock</a>
-                    </div>
-                </div>
-
-                <div class="dropdown" id="trauma">
-                    <button class="dropbtn">Trauma</button>
-                    <div class="dropdown-content">
-                        <a href="assets/protocols/Burns.pdf" download>Burns</a>
-                        <a href="assets/protocols/Crush_Syndrome_Suspension_Injuries.pdf" download>Crush Syndrome / Suspension Injuries</a>
-                        <a href="assets/protocols/General_Trauma.pdf" download>General Trauma</a>
-                        <a href="assets/protocols/Bites_Stings_Envenomations.pdf" download>Bites, Stings, Envenomations</a>
-                        <a href="assets/protocols/Stroke.pdf" download>Stroke</a>
-                    </div>
-                </div>
-
-                <div class="dropdown" id="Phone Numbers">
-                    <button class="dropbtn">Phone Numbers</button>
-                    <div class="dropdown-content">
-                        <!-- Add phone numbers or links here -->
-                    </div>
-                </div>
+        <nav>
+            <a href="#" class="logo">EMS Protocols</a>
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-switch" class="theme-switch">
+                <label for="theme-switch" class="theme-switch-label"></label>
             </div>
-
-            <aside class="calculator-card">
-                <h2>Medication Dosage Calculator</h2>
-                <div class="calculator-section">
-                    <label for="weight">Weight (kg):</label>
-                    <input type="number" id="weight" name="weight" required>
-
-                    <label for="medicationDosage">Dosage (mg/kg):</label>
-                    <input type="number" id="medicationDosage" name="medicationDosage" required>
-
-                    <button type="button" onclick="calculateDosage()">Calculate</button>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Emergency Medical Services Protocols</h1>
+            <p>Quick access to life-saving protocols and tools for EMS professionals</p>
+        </div>
+    </section>
+    <main>
+        <div class="container">
+            <section class="protocols">
+                <h2>Protocols</h2>
+                <div class="protocol-cards">
+                    <div class="protocol-card">
+                        <h3>Cardiac</h3>
+                        <ul>
+                            <li><a href="#">Bradycardia</a></li>
+                            <li><a href="#">Chest Pain</a></li>
+                            <li><a href="#">CHF / Pulmonary Edema</a></li>
+                            <li><a href="#">Narrow-Complex Tachycardia</a></li>
+                            <li><a href="#">Pulseless Arrest</a></li>
+                            <li><a href="#">ROSC</a></li>
+                            <li><a href="#">Wide Complex Tachycardia</a></li>
+                        </ul>
+                    </div>
+                    <div class="protocol-card">
+                        <h3>Medical</h3>
+                        <ul>
+                            <li><a href="#">Airway Obstruction</a></li>
+                            <li><a href="#">Allergic Reaction</a></li>
+                            <li><a href="#">Altered Level of Consciousness (ALOC)</a></li>
+                            <li><a href="#">Behavioral Emergency</a></li>
+                            <li><a href="#">Diabetic Emergency</a></li>
+                            <li><a href="#">Nausea / Vomiting</a></li>
+                            <li><a href="#">Overdose / Poisoning</a></li>
+                            <li><a href="#">Pain Management</a></li>
+                            <li><a href="#">Respiratory Distress</a></li>
+                            <li><a href="#">Seizure</a></li>
+                            <li><a href="#">Sepsis</a></li>
+                            <li><a href="#">Stroke / CVA / TIA</a></li>
+                        </ul>
+                    </div>
+                    <div class="protocol-card">
+                        <h3>Trauma</h3>
+                        <ul>
+                            <li><a href="#">Burns</a></li>
+                            <li><a href="#">Drowning</a></li>
+                            <li><a href="#">Eye Injury</a></li>
+                            <li><a href="#">Hemorrhage Control</a></li>
+                            <li><a href="#">Soft Tissue Injury</a></li>
+                            <li><a href="#">Spinal Motion Restriction</a></li>
+                            <li><a href="#">Traumatic Injury</a></li>
+                        </ul>
+                    </div>
+                    <div class="protocol-card">
+                        <h3>Environmental</h3>
+                        <ul>
+                            <li><a href="#">Hyperthermia</a></li>
+                            <li><a href="#">Hypothermia</a></li>
+                        </ul>
+                    </div>
+                    <div class="protocol-card">
+                        <h3>OB/GYN</h3>
+                        <ul>
+                            <li><a href="#">Childbirth</a></li>
+                            <li><a href="#">Eclampsia</a></li>
+                            <li><a href="#">Newborn Care</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div id="results">
-                    <p id="dosageResult"></p>
-                </div>
+            </section>
+            <aside>
+                <section class="calculator">
+                    <h2>Dosage Calculator</h2>
+                    <form id="dosage-form">
+                        <select id="medication" required>
+                            <option value="">Select Medication</option>
+                            <option value="epinephrine">Epinephrine</option>
+                            <option value="morphine">Morphine</option>
+                            <!-- Add more medications -->
+                        </select>
+                        <input type="number" id="weight" placeholder="Weight (kg)" required>
+                        <button type="submit">Calculate</button>
+                    </form>
+                    <div id="result" class="result-card"></div>
+                </section>
+                <section class="map">
+                    <h2>Nearby Hospitals</h2>
+                    <div id="map"></div>
+                </section>
             </aside>
-        </section>
-
-        <section id="map-container">
-            <div id="map"></div>
-        </section>
+        </div>
     </main>
     <footer>
-        <p>&copy; 2024 EMS Protocols. All rights reserved.</p>
+        <p>&copy; 2024 EMS Protocols</p>
     </footer>
     <script src="script.js"></script>
+    <div class="search-container">
+        <input type="text" id="protocol-search" placeholder="Search protocols...">
+    </div>
 </body>
 </html>
+
