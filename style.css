@@ -1,172 +1,263 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #000000;
+:root {
+    --primary-color: #e74c3c;
+    --secondary-color: #3498db;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --card-background: rgba(255, 255, 255, 0.9);
+    --border-color: #bdc3c7;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme {
+    --primary-color: #e74c3c;
+    --secondary-color: #3498db;
+    --background-color: #2c3e50;
+    --text-color: #ecf0f1;
+    --card-background: rgba(44, 62, 80, 0.9);
+    --border-color: #34495e;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+* {
     margin: 0;
     padding: 0;
-    text-align: center; /* Center aligns content */
-    color: #ffffff; /* Text color set to white */
-}
-
-h1 {
-    font-family: 'Arial Black', Gadget, sans-serif; /* Arial Black is a bolder variant */
-    color: #ffffff; 
-    text-align: center; 
-    font-size: 36px; 
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-decoration: underline;
-    /* Additional styles... */
-}
-
-.content {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 20px;
-}
-
-.dropdown-container {
-    width: 70%; /* The width of the dropdown container */
-    padding: 20px;
-    border: 2px solid #6f42c1;
-    border-radius: 10px;
-    background-color: #090155;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
     box-sizing: border-box;
-    margin-right: 20px; /* Space between dropdowns and calculator */
 }
 
-.dropdown {
-    display: block; /* Ensures dropdowns are stacked */
-    margin-bottom: 15px; /* Space between dropdowns */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
 }
 
-.dropbtn {
-    background-color: #6f42c1;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 90%; /* Full width of the container */
-    text-align: left; /* Text aligned to left */
-    border-radius: 7px;
-    border: 2px solid #000000;
-    margin: auto;
-}
-
-.dropdown-content {
-    display: none;
-    position: relative; /* Adjust position */
-    background-color: #ffffff;
-    min-width: 100%; /* Full width of the dropdown */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    border-radius: 7px;
-    border: 2px solid #000000;
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: #000000;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #9548faa6;
-    border: 2px solid #ffffff;
-    border-radius: 7px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #695aa6;
-}
-
-.dropbtn:active {
-    background-color: #563d7c; /* Darker shade for tap effect */
-}
-
-.dropbtn::after {
-    content: '▼'; /* Unicode character for down arrow */
-    font-size: 12px; /* Adjust the size as needed */
-    margin-left: 5px; /* Space between the text and the arrow */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 header {
-    text-align: center; /* Center-aligns the content */
-    padding: 20px; /* Adds some padding around the header content */
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
 }
 
-header img {
-    width: 100%; /* Adjusts the width of the image */
-    height: auto; /* Maintains the aspect ratio of the image */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#map-container {
-    width: 100%;
-    height: 400px;
-    margin: 20px 0;
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
 }
 
-#map {
-    width: 100%;
-    height: 100%;
+.hero {
+    background-image: url('assets/imgs/fire.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: #fff;
 }
 
-.calculator-card {
-    flex: 0 0 250px;
-    background-color: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    color: #000000; /* Override to black text for the calculator card */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
 }
 
-.calculator-section {
-    margin-top: 20px;
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 20px;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 14px; /* Adjust the font size for labels */
-    color: #000000; /* Override to black text */
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-input[type="number"] {
-    width: 100%;
-    padding: 8px;
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+main {
+    padding: 40px 0;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.protocol-cards {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+    scroll-snap-type: x mandatory;
+}
+
+.protocol-card {
+    flex: 0 0 300px;
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    scroll-snap-align: start;
+    transition: all 0.3s ease;
+}
+
+.protocol-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.protocol-card h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px; /* Adjust the font size for input fields */
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.protocol-card ul {
+    list-style-type: none;
+}
+
+.protocol-card li {
+    margin-bottom: 10px;
+}
+
+.protocol-card a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.protocol-card a:hover {
+    color: var(--secondary-color);
+}
+
+.calculator, .map {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 40px;
+    box-shadow: var(--shadow);
+}
+
+#dosage-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select, button {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
 }
 
 button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px;
+    background-color: var(--primary-color);
+    color: #fff;
     cursor: pointer;
-    border-radius: 4px;
-    width: 100%;
-    margin-bottom: 20px;
-    font-size: 14px; /* Adjust the font size for buttons */
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #c0392b;
 }
 
-#results {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #333;
+#map {
+    height: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 40px;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-switch-label {
+    cursor: pointer;
+    width: 60px;
+    height: 34px;
+    background-color: #ccc;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.theme-switch-label:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+.theme-switch:checked + .theme-switch-label {
+    background-color: var(--secondary-color);
+}
+
+.theme-switch:checked + .theme-switch-label:after {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .protocol-card {
+        flex: 0 0 250px;
+    }
 }
